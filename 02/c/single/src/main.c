@@ -2,7 +2,7 @@
 *
 *	Jednosmerny seznam
 *	
-*	This file is part of the 0VP course 
+*	This file is part of the VZI course 
 *
 *	New BSD License
 *	https://www.vutbr.cz/studis/student.phtml?gm=gm_detail_predmetu&apid=158780
