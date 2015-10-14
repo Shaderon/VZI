@@ -17,8 +17,8 @@ Postupne zde budou zverejneny priklady probirane na cvicenich tohoto predmetu.
 
 Obsah predmetu
 -------------
-Kurz seznamuje studenty se základy matematické informatiky. 
-Jsou diskutovány základní matematické struktury oboru, jejich vlastnosti a implementace. 
+Kurz seznamuje studenty se základy matematické informatiky.
+Jsou diskutovány základní matematické struktury oboru, jejich vlastnosti a implementace.
 
 
 Doporucene odkazy
@@ -35,8 +35,14 @@ Doporucene odkazy
 - [Java Lectures - Data Structrues & Algorithms - UC Berkeley]
 (https://www.youtube.com/playlist?list=PLD4CAE0D1D2EEF760)
 
+- [Think Python]
+(http://www.greenteapress.com/thinkpython2/index.html)
+
 - [Python-Lectures]
 (https://github.com/rajathkumarmp/Python-Lectures)
 
-- [Pro Git] 
+- [Become a git guru]
+(https://www.atlassian.com/git/tutorials/)
+
+- [Pro Git]
 (https://git-scm.com/book/en/v2)
