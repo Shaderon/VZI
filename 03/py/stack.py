@@ -57,6 +57,7 @@ class Stack:
                 tmp.getPred().setNext(None)
                 self.last = tmp.getPred()
             else:
+                self.head = None
                 self.last = None
 
             self.size -= 1

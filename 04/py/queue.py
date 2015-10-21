@@ -70,21 +70,3 @@ class Queue:
             current = current.getNext()
 
 
-st = Fifo()
-
-st.push("Ahoj!")
-st.push("Nazdar!")
-st.push("Cau!")
-
-st.print()
-
-print("--------")
-print(st.pop())
-print(st.pop())
-print(st.pop())
-
-print("--------")
-try:
-    print(st.pop())
-except Exception as msg:
-    print(msg)

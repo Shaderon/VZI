@@ -1,4 +1,4 @@
-# implementace adt FIFO neboli Queue
+# implementace adt LIFO neboli Stack
 
 class Node:
 
@@ -23,7 +23,7 @@ class Node:
         return self.pred
 
 
-class Queue:
+class Stack:
 
     def __init__(self):
         self.head = None
@@ -50,41 +50,25 @@ class Queue:
         if self.size <= 0:
             raise Exception('Stack is empty!')
         else:
-            data = self.head.data
-            tmp = self.head
+            data = self.last.data
+            tmp = self.last
 
             if(self.size > 1):
-                tmp.getNext().setPred(None)
-                self.head = tmp.getNext()
+                tmp.getPred().setNext(None)
+                self.last = tmp.getPred()
             else:
                 self.head = None
+                self.last = None
 
             self.size -= 1
+
             return data
 
     def print(self):
-        current = self.head
+        current = self.last
 
         while(current is not None):
             print(current.getData())
-            current = current.getNext()
+            current = current.getPred()
 
 
-st = Fifo()
-
-st.push("Ahoj!")
-st.push("Nazdar!")
-st.push("Cau!")
-
-st.print()
-
-print("--------")
-print(st.pop())
-print(st.pop())
-print(st.pop())
-
-print("--------")
-try:
-    print(st.pop())
-except Exception as msg:
-    print(msg)
