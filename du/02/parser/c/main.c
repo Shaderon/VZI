@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         printf("\n");
     }
     printf("\n\n");
-
+    
     // clean up
     for (i = 0; i < prob.dimension; ++i)
     {

@@ -45,7 +45,7 @@ int getRowSize(char* line)
     return ++count;
 }
 
-int parseList(FILE* pf, int dimension, edgeData_t* list)
+int parseList(FILE* pf, int dimension, edgeData_t *list)
 {
     char line[LINE_BUFFER_SZ];
     int i = 0;
@@ -77,6 +77,23 @@ int parseList(FILE* pf, int dimension, edgeData_t* list)
     return 1;
 }
 
+void fixIndexing(edgeData_t *list, int dimension)
+{
+    int i = 0;
+    int j = 0;
+    int a = 0;
+
+    for (i = 0; i < dimension; ++i)
+    {
+        int sz = list[i].size;
+
+        for (j = 0; j < sz; ++j)
+        {
+            list[i].row[j]--;
+        }
+    }
+}
+
 int parse(char* input, Problem_t* problem)
 {
     FILE* pf = NULL;
@@ -87,6 +104,8 @@ int parse(char* input, Problem_t* problem)
     char* cmt_buf = NULL;
     char* direction_buf = NULL;
     int dimension = 0;
+
+    char* label_buf[LINE_BUFFER_SZ];
 
     edgeData_t* edgeList = NULL;
     edgeData_t* weightList = NULL;
@@ -128,15 +147,20 @@ int parse(char* input, Problem_t* problem)
     problem->dimension = dimension;
 
     // EDGE_DIRECTIONS_SECTION
-    fgets(NULL, 0, pf);
+    fgets(label_buf, LINE_BUFFER_SZ, pf);
     edgeList = (edgeData_t*)calloc(dimension, sizeof(edgeData_t));
     ret = parseList(pf, dimension, edgeList);
     if (ret != 1)
         goto error;
+    
+    // v souboru je indexovani od 1, ale pro nas je lepsi indexovat od 0
+    // proto jej upravime 
+    fixIndexing(edgeList, dimension); 
+    
     problem->edgeList = edgeList;
 
     // EDGE_WEIGHT_SECTION
-    fgets(NULL, 0, pf);
+    fgets(label_buf, LINE_BUFFER_SZ, pf);
     weightList = (edgeData_t*)calloc(dimension, sizeof(edgeData_t));
     ret = parseList(pf, dimension, weightList);
     if (ret != 1)
