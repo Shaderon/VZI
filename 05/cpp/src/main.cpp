@@ -106,10 +106,7 @@ void test2()
 
         for (auto j = 0; j < edgesCount; ++j)
         {
-            auto endNode = problem.edgeList[i][j] - 1; 
-            // !!! tady musime odecist 1
-            // protoze v mapovem souboru se uzly indexuji od 1
-
+            auto endNode = problem.edgeList[i][j];
             auto weight  = problem.weightList[i][j];
 
             g.addEdge(startNode, endNode, weight);
@@ -117,7 +114,6 @@ void test2()
     }
 
     // a ted uz zbyva jen hledani SP
-
     Dijkstra djk(&g); // budeme hledat cestu pomoci dijkstrova algoritmu
     
     auto start = g.getVertex(0);

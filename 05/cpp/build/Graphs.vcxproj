@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9444EB50-F357-D34F-AEA7-834F32DC7108}</ProjectGuid>
+    <ProjectGuid>{9FF042B2-6D50-8940-9A04-15693A7BCE64}</ProjectGuid>
     <RootNamespace>Graphs</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>

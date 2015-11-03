@@ -227,7 +227,10 @@ void GraphParser::parseEdgesList(std::vector<std::vector<size_t>>& edges)
             std::vector<size_t> row;
 
             for (size_t j = 0; j < v.size(); ++j)
-                row.push_back(convert<size_t>(v[j]));
+                row.push_back(convert<size_t>(v[j]) -1 ); 
+                // !!! odecteme -1
+                // jelikoz jsou uzly v souboru indexovany od 1 a pro nas je 
+                // lepsi indexovat od 0
 
             edges.push_back(row);
         }
