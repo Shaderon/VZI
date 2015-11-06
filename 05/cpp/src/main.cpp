@@ -8,6 +8,10 @@
 #include "AdjacencyGraph.h"
 #include "Dijkstra.h"
 
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
 void test1()
 {
     // nas ukazkovy graf
@@ -78,6 +82,7 @@ void test2()
 
     p.parse("test.map", problem);
     //p.parse("test100-dir.map", problem);
+    //p.parse("test10k-dir.map", problem);
     
     auto sz = problem.dimension;
     auto directed = problem.directed;
@@ -122,14 +127,24 @@ void test2()
     std::cout << "Start node: " << start->idx << "\n";
     std::cout << "End node  : " << finish->idx << "\n";
 
-    auto ret = djk.search(start, finish);
 
-    std::cout << "Route     : ";
-    for (uint32_t i = 0; i < ret.size() - 1; ++i)
-    {
-        std::cout << ret[i]->idx << "->";
-    }
-    std::cout << ret[ret.size() - 1]->idx << "\n\n";
+    high_resolution_clock::time_point t1 = high_resolution_clock::now();
+    auto ret = djk.search(start, finish);
+    high_resolution_clock::time_point t2 = high_resolution_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
+    // v pripade ze milisekundy jsou moc, tak muzete pouzit mikrosekundy
+    //auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count(); 
+    
+    std::cout << "Elapsed: " << duration << " ms\n";
+
+    // tisk cesty
+    //std::cout << "Route     : ";
+    //for (uint32_t i = 0; i < ret.size() - 1; ++i)
+    //{
+    //    std::cout << ret[i]->idx << "->";
+    //}
+    //std::cout << ret[ret.size() - 1]->idx << "\n\n";
 
 }
 
