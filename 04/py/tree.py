@@ -1,4 +1,4 @@
-# binary tree
+# binary search tree
 # https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html
 # http://www.openbookproject.net/thinkcs/archive/java/english/chap17.htm
 
