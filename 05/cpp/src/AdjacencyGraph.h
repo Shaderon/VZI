@@ -51,7 +51,6 @@ class AdjecencyGraph : public IGraph
 
   protected:
     void makeEmpty();
-    ;
     bool vertexExists(const Vertex& v);
 
   private:

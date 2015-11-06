@@ -8,7 +8,7 @@ std::vector<Vertex*> Dijkstra::search(Vertex *start, Vertex *finish)
     // polozku value na nekonecno (v nasem pripade je to max. hodnota typu)
     // polozku visited na false, tj. vsechny uzly jsou nenavstiveny
     // polozku pred, tj. predchozi uzel na nullptr (tj. NULL)
-    for (uint32_t i = 0; i < g->getVertexCount(); ++i)
+    for (auto i = 0; i < g->getVertexCount(); ++i)
     {
         auto v = g->getVertex(i);
         v->value = DJK_INFINITY;
