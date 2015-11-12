@@ -7,6 +7,10 @@ import random
 import time
 # import timeit
 
+# v pripade max. recursion limitu
+# sys.setrecursionlimit(1500)
+# viz. https://stackoverflow.com/questions/3323001/maximum-recursion-depth
+
 nums = list()
 
 n = 10
@@ -71,8 +75,8 @@ def partition(lst, left, right):
 def quick_sort_recursive(lst, left, right):
     if (left < right):
         split = partition(lst, left, right)
-        quick_sort(lst, left, split-1)
-        quick_sort(lst, split+1, right)
+        quick_sort_recursive(lst, left, split-1)
+        quick_sort_recursive(lst, split+1, right)
 
 def quick_sort(lst, left, right):
     s = stack.Stack()
@@ -105,14 +109,12 @@ def quick_sort(lst, left, right):
 print(nums)
 s = time.time()
 
-bubble_sort(nums)
+# bubble_sort(nums)
 # insertion_sort(nums)
-# quick_sort_recursive(nums, 0, len(nums)-1)
+quick_sort_recursive(nums, 0, len(nums)-1)
 # quick_sort(nums, 0, len(nums)-1)
 
 e = time.time()
 print(nums)
 
 print(e-s)
-
-
