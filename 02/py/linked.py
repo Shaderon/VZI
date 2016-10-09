@@ -1,4 +1,4 @@
-# linked list
+# double linked list 
 
 class Node:
     def __init__(self, data_):
@@ -59,28 +59,25 @@ class DoubleLinkedList:
             print(current.getData())
             current = current.getPred()
 
-    def remove(self, idx):
-        if idx >= self.size:
-            return
-        else:
-            curr = self.head
+    def remove(self, data):
 
-            for i in range(idx):
-                curr = curr.getNext()
+        current = self.head
+        while current != None:
+            if current.data == data:
 
-            # node je last
-            if curr.getNext() is None:
-                curr.getPred().setNext(None)
-                self.last = curr.getPred()
-            # node je head
-            elif curr is self.head:
-                temp = curr.getNext()
-                temp.setPred(None)
-                self.head = temp
-            else:
-                curr.getPred().setNext(curr.getNext())
-                curr.getNext().setPred(curr.getPred())
+                if current.pred!= None:
+                    current.pred.next = current.next
+                else:
+                    self.head = current.next
 
+                if current.next != None:
+                    current.next.pred = current.pred
+                else:
+                    self.last = current.pred
+
+                self.size -= 1
+
+            current = current.next
 
 # main()
 
@@ -91,10 +88,17 @@ lst.pushBack(2)
 lst.pushBack(3)
 
 lst.printList()
-# lst.printListBackWard()
 
-lst.remove(2)
+print("------")
+
+#lst.remove(2)
+lst.remove(1)
+lst.remove(3)
 
 lst.printList()
+
+#lst.printListBackWard()
+
+
 
 
